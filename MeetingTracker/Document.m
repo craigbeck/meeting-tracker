@@ -16,7 +16,13 @@
     if (self) {
         // Add your subclass-specific initialization here.
     }
+    NSLog(@"init finished");
     return self;
+}
+
+- (void)dealloc {
+    [self setTimer:nil];
+    [super dealloc];
 }
 
 - (NSString *)windowNibName
@@ -30,6 +36,16 @@
 {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
+    [self setTimer:[NSTimer scheduledTimerWithTimeInterval:1.0
+                                                    target:self
+                                                  selector:@selector(updateUI:)
+                                                  userInfo:nil
+                                                   repeats:YES]];
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+    NSLog(@"windowWillClose");
+    [[self timer] invalidate];
 }
 
 + (BOOL)autosavesInPlace
@@ -41,9 +57,8 @@
 {
     // Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
     // You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-    NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
-    @throw exception;
-    return nil;
+    // TODO: implement saving
+    return [NSData data];
 }
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
@@ -54,6 +69,29 @@
     NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
     @throw exception;
     return YES;
+}
+
+- (IBAction)logMeeting:(id)sender {
+    NSLog(@"logMeeting");
+}
+
+- (IBAction)logParticipants:(id)sender {
+    NSLog(@"logParticipants");
+}
+
+- (void)updateUI:(NSTimer *)timer  {
+    NSLog(@"updateUI");
+    [[self currentTimeLabel] setStringValue:[NSString stringWithFormat:@"%@", [NSDate date]]];
+}
+
+- (void)setTimer:(NSTimer *)timer {
+    if (timer == _timer) return;
+    [_timer release];
+    _timer = [timer retain];
+}
+
+- (NSTimer *)timer {
+    return _timer;
 }
 
 @end
