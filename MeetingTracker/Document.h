@@ -16,6 +16,7 @@
 }
 
 @property (assign) IBOutlet NSTextField *currentTimeLabel;
+@property (assign) IBOutlet NSDateFormatter *currentTimeFormatter;
 
 - (IBAction)logMeeting:(id)sender;
 - (IBAction)logParticipants:(id)sender;
