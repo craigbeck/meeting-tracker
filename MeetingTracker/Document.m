@@ -11,6 +11,8 @@
 
 @implementation Document
 
+#pragma mark - Object Creation
+
 - (id)init
 {
     self = [super init];
@@ -22,11 +24,15 @@
     return self;
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
     [self setTimer:nil];
     [_meeting release];
+    
     [super dealloc];
 }
+
+#pragma mark - Window Methods
 
 - (NSString *)windowNibName
 {
@@ -44,12 +50,16 @@
                                                   selector:@selector(updateUI:)
                                                   userInfo:nil
                                                    repeats:YES]];
+    [_meeting setStartingTime:[NSDate date]];
 }
 
-- (void)windowWillClose:(NSNotification *)notification {
+- (void)windowWillClose:(NSNotification *)notification
+{
     NSLog(@"windowWillClose");
     [[self timer] invalidate];
 }
+
+#pragma mark - NSCoding Methods
 
 + (BOOL)autosavesInPlace
 {
@@ -74,26 +84,36 @@
     return YES;
 }
 
-- (IBAction)logMeeting:(id)sender {
+#pragma mark - Logging Actions
+
+- (IBAction)logMeeting:(id)sender
+{
     NSLog(@"%@", _meeting);
 }
 
-- (IBAction)logParticipants:(id)sender {
+- (IBAction)logParticipants:(id)sender
+{
     NSLog(@"%@", [_meeting personsPresent]);
 }
+
+#pragma mark - UI Methods
 
 - (void)updateUI:(NSTimer *)timer  {
     [[self currentTimeLabel] setStringValue:[NSString stringWithFormat:@"%@", [NSDate date]]];
 }
 
-- (void)setTimer:(NSTimer *)timer {
+#pragma mark - Property Accessors
+
+- (void)setTimer:(NSTimer *)timer
+{
     if (timer == _timer) return;
     [_timer release];
     _timer = [timer retain];
 }
 
-- (NSTimer *)timer {
-    return _timer;
+- (NSTimer *)timer
+{
+    return [[_timer copy] autorelease];
 }
 
 @end

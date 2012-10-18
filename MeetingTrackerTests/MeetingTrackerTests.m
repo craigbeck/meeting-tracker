@@ -34,7 +34,8 @@
 
 - (void)testDescription {
     Person *person = [[[Person alloc] initWithName:@"Mr. Foobar" rate:3.13] autorelease];
-    STAssertTrue([[person description] isEqualToString:@"Mr. Foobar, $3.13/hour"], @"description unexpected: %@", person);
+    NSString *expected = @"Mr. Foobar, $3.13/hour";
+    STAssertTrue([[person description] isEqualToString:expected], @"expected: \"%@\" actual: \"%@\"", expected, person);
 }
 
 - (void)testTotalBillingRateWithOnePerson {

@@ -15,6 +15,7 @@
 			<string>NSButton</string>
 			<string>NSButtonCell</string>
 			<string>NSCustomObject</string>
+			<string>NSDateFormatter</string>
 			<string>NSTextField</string>
 			<string>NSTextFieldCell</string>
 			<string>NSView</string>
@@ -113,12 +114,21 @@
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="883276721">
 								<int key="NSCellFlags">68157504</int>
-								<int key="NSCellFlags2">272630784</int>
+								<int key="NSCellFlags2">-1874852864</int>
 								<string key="NSContents">Current time label</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">16</double>
 									<int key="NSfFlags">16</int>
+								</object>
+								<object class="NSDateFormatter" key="NSFormatter" id="372128433">
+									<dictionary class="NSMutableDictionary" key="NS.attributes">
+										<integer value="2" key="dateStyle"/>
+										<integer value="1040" key="formatterBehavior"/>
+										<integer value="2" key="timeStyle"/>
+									</dictionary>
+									<string key="NS.format">MMM d, y h:mm:ss a</string>
+									<bool key="NS.natural">NO</bool>
 								</object>
 								<string key="NSCellIdentifier">_NS:1535</string>
 								<reference key="NSControlView" ref="945652857"/>
@@ -399,6 +409,9 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">100036</int>
 						<reference key="object" ref="883276721"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="372128433"/>
+						</array>
 						<reference key="parent" ref="945652857"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -410,6 +423,11 @@
 						<int key="objectID">100038</int>
 						<reference key="object" ref="709776344"/>
 						<reference key="parent" ref="568628114"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100042</int>
+						<reference key="object" ref="372128433"/>
+						<reference key="parent" ref="883276721"/>
 					</object>
 				</array>
 			</object>
@@ -432,6 +450,8 @@
 				<string key="100036.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100037.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="100038.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<integer value="1" key="100042.IBDateFormatterBehaviorMetadataKey"/>
+				<string key="100042.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBWindowTemplateEditedContentRect">{{133, 170}, {507, 413}}</string>
 				<array key="6.IBNSViewMetadataConstraints">
@@ -448,7 +468,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100041</int>
+			<int key="maxID">100042</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

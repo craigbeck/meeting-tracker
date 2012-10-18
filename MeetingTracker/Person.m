@@ -36,6 +36,7 @@
 {
     [self setName:nil];
     [self setHourlyRate:nil];
+    
     [super dealloc];
 }
 
@@ -67,7 +68,7 @@
     NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
     [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [currencyFormatter setCurrencyCode:@"USD"];
-    NSString *description = [[NSString alloc] initWithFormat:@"%@, rate %@/hour",
+    NSString *description = [[NSString alloc] initWithFormat:@"%@, %@/hour",
                              [self name],
                              [currencyFormatter stringFromNumber:[self hourlyRate]]];
     [currencyFormatter release];

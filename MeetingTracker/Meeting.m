@@ -22,9 +22,9 @@
 + (id)meetingWithCaptains
 {
     Meeting* meeting = [[Meeting alloc] init];
-    [meeting insertObject:[[[Person alloc] initWithName:@"Picard" rate:12.5] autorelease] inPersonsPresentAtIndex:0];
-    [meeting insertObject:[[[Person alloc] initWithName:@"Kirk" rate:12.5] autorelease] inPersonsPresentAtIndex:0];
-    [meeting insertObject:[[[Person alloc] initWithName:@"Joe" rate:12.5] autorelease] inPersonsPresentAtIndex:0];
+    [meeting insertObject:[[[Person alloc] initWithName:@"Picard" rate:312.5] autorelease] inPersonsPresentAtIndex:0];
+    [meeting insertObject:[[[Person alloc] initWithName:@"Kirk" rate:212.5] autorelease] inPersonsPresentAtIndex:0];
+    [meeting insertObject:[[[Person alloc] initWithName:@"Joe" rate:32.5] autorelease] inPersonsPresentAtIndex:0];
     return [meeting autorelease];
 }
 
@@ -71,9 +71,10 @@
 {
     NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
     [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    NSString *description = [[NSString alloc] initWithFormat:@"Meeting: %li attendees, hourly rate %@/hour, cost %@",
+    NSString *description = [[NSString alloc] initWithFormat:@"Meeting: %li attendees, hourly rate %@/hour, elapsed %@, cost %@",
                              [self countOfPersonsPresent],
                              [currencyFormatter stringFromNumber:[self totalBillingRate]],
+                             [self elapsedTimeDisplayString],
                              [currencyFormatter stringFromNumber:[self accruedCost]]];
     [currencyFormatter release];
     return [description autorelease];
@@ -128,9 +129,13 @@
 - (void)setStartingTime:(NSDate *)start
 {
     if (start == _startTime) return;
-    [start retain];
     [_startTime release];
-    _startTime = start;
+    _startTime = [[start copy] retain];
+    // clear end time if start time > end time
+    if ([start compare:[self endingTime]] == NSOrderedDescending)
+    {
+        [self setEndingTime:nil];
+    }
 }
 
 - (NSDate*)endingTime
@@ -141,21 +146,33 @@
 - (void)setEndingTime:(NSDate *)end
 {
     if (end == _endTime) return;
+    // do not allow setting of end time < start time
+    if ([end compare:[self startingTime]] == NSOrderedAscending) return;
     [end retain];
     [_endTime release];
-    _endTime = end;
+    _endTime = [[end copy] retain];
 }
 
-- (NSUInteger)elapsedSeconds {
-    return 10800;
+- (NSUInteger)elapsedSeconds
+{
+    NSDate *end = [NSDate date];
+    if ([self endingTime]) end = [self endingTime];
+    NSTimeInterval difference = [end timeIntervalSinceDate:[self startingTime]];
+    return difference;
 }
 
-- (double)elapsedHours {
-    return 3.0;
+- (double)elapsedHours
+{
+    return (double)[self elapsedSeconds] / 60.0 / 60.0;
 }
 
-- (NSString*)elapsedTimeDisplayString {
-    return @"00:00:00";
+- (NSString*)elapsedTimeDisplayString
+{
+    long totalSeconds = [self elapsedSeconds];
+    uint seconds = totalSeconds % 60;
+    uint minutes = (totalSeconds / 60) % 60;
+    uint hours = totalSeconds / 60 / 60;
+    return [[NSString alloc] initWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];
 }
 
 #pragma mark - Costing Methods
