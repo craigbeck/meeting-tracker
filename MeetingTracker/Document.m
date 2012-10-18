@@ -7,6 +7,7 @@
 //
 
 #import "Document.h"
+#import "Meeting.h"
 
 @implementation Document
 
@@ -15,6 +16,7 @@
     self = [super init];
     if (self) {
         // Add your subclass-specific initialization here.
+        _meeting = [[Meeting meetingWithCaptains] retain];
     }
     NSLog(@"init finished");
     return self;
@@ -22,6 +24,7 @@
 
 - (void)dealloc {
     [self setTimer:nil];
+    [_meeting release];
     [super dealloc];
 }
 
@@ -36,7 +39,7 @@
 {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
-    [self setTimer:[NSTimer scheduledTimerWithTimeInterval:1.0
+    [self setTimer:[NSTimer scheduledTimerWithTimeInterval:0.2
                                                     target:self
                                                   selector:@selector(updateUI:)
                                                   userInfo:nil
@@ -72,15 +75,14 @@
 }
 
 - (IBAction)logMeeting:(id)sender {
-    NSLog(@"logMeeting");
+    NSLog(@"%@", _meeting);
 }
 
 - (IBAction)logParticipants:(id)sender {
-    NSLog(@"logParticipants");
+    NSLog(@"%@", [_meeting personsPresent]);
 }
 
 - (void)updateUI:(NSTimer *)timer  {
-    NSLog(@"updateUI");
     [[self currentTimeLabel] setStringValue:[NSString stringWithFormat:@"%@", [NSDate date]]];
 }
 
