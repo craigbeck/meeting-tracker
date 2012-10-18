@@ -172,7 +172,7 @@
     uint seconds = totalSeconds % 60;
     uint minutes = (totalSeconds / 60) % 60;
     uint hours = totalSeconds / 60 / 60;
-    return [[NSString alloc] initWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];
+    return [[[NSString alloc] initWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds] autorelease];
 }
 
 #pragma mark - Costing Methods
