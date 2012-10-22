@@ -65,6 +65,7 @@
 		93AB9157162E751C00170E08 /* Meeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meeting.m; sourceTree = "<group>"; };
 		93AB9158162E751C00170E08 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		93AB9159162E751C00170E08 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		93C4F7BC1635F80200FD1C5D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 		931FB77B162D257F0069ABDA = {
 			isa = PBXGroup;
 			children = (
+				93C4F7BC1635F80200FD1C5D /* README.md */,
 				93AB914B162E712000170E08 /* icon_256x256.png */,
 				931FB790162D257F0069ABDA /* MeetingTracker */,
 				931FB7B0162D25810069ABDA /* MeetingTrackerTests */,
