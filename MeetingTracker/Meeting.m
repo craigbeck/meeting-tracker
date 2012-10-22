@@ -84,7 +84,7 @@
 
 - (NSArray*)personsPresent
 {
-    return [[[NSArray alloc] initWithArray:_persons] autorelease];
+    return [[[NSMutableArray alloc] initWithArray:_persons] autorelease];
 }
 
 - (void)setPersonsPresent:(NSArray *)people
