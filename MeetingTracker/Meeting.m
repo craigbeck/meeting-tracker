@@ -157,8 +157,16 @@
 
 - (NSUInteger)elapsedSeconds
 {
-    NSDate *end = [NSDate date];
-    if ([self endingTime]) end = [self endingTime];
+    if ([self startingTime] == nil) return 0U;
+    NSDate *end = nil;
+    if ([self endingTime] == nil)
+    {
+        end = [NSDate date];
+    }
+    else
+    {
+        end = [self endingTime];
+    }
     NSTimeInterval difference = [end timeIntervalSinceDate:[self startingTime]];
     return difference;
 }

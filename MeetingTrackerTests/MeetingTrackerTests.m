@@ -56,5 +56,21 @@
     STAssertEqualsWithAccuracy([[meeting totalBillingRate] doubleValue], 15.0, 0.01, @"meeting rate nexpected");
 }
 
+- (void)testMeetingWithoutStartingTimeHasZeroElapsedTime
+{
+    Meeting *meeting = [Meeting meetingWithCaptains];
+    sleep(1);
+    NSUInteger actual = [meeting elapsedSeconds];
+    STAssertEquals(actual, (NSUInteger)0, @"expected elapsed time to be zero but was %li", actual);
+}
+
+- (void)testMeetingWithoutStartingTimeHsZeroAccruedCost
+{
+    Meeting *meeting = [Meeting meetingWithCaptains];
+    sleep(1);
+    double actual = [[meeting accruedCost] doubleValue];
+    STAssertEquals(actual, 0.0, @"expected elapsed time to be zero but was %f", actual);
+}
+
 
 @end
