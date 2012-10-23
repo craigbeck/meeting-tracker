@@ -260,12 +260,12 @@
 														<int key="NSCellFlags2">-2147481600</int>
 														<string key="NSContents">Text Cell</string>
 														<reference key="NSSupport" ref="739953033"/>
-														<object class="NSNumberFormatter" key="NSFormatter" id="278969834">
+														<object class="NSNumberFormatter" key="NSFormatter" id="699078163">
 															<dictionary class="NSMutableDictionary" key="NS.attributes">
 																<boolean value="YES" key="allowsFloats"/>
 																<integer value="1040" key="formatterBehavior"/>
 																<boolean value="YES" key="lenient"/>
-																<object class="NSLocale" key="locale" id="273036640">
+																<object class="NSLocale" key="locale" id="504279760">
 																	<string key="NS.identifier"/>
 																</object>
 																<string key="negativeInfinitySymbol">-∞</string>
@@ -283,9 +283,9 @@
 															</object>
 															<object class="NSAttributedString" key="NS.nan">
 																<string key="NSString">NaN</string>
-																<dictionary key="NSAttributes" id="299751698"/>
+																<dictionary key="NSAttributes" id="1022080535"/>
 															</object>
-															<object class="NSDecimalNumberPlaceholder" key="NS.min" id="506856714">
+															<object class="NSDecimalNumberPlaceholder" key="NS.min" id="275845251">
 																<int key="NS.exponent">0</int>
 																<int key="NS.length">0</int>
 																<bool key="NS.negative">YES</bool>
@@ -293,7 +293,7 @@
 																<int key="NS.mantissa.bo">1</int>
 																<bytes key="NS.mantissa">AAAAAAAAAAAAAAAAAAAAAA</bytes>
 															</object>
-															<reference key="NS.max" ref="506856714"/>
+															<reference key="NS.max" ref="275845251"/>
 															<object class="NSDecimalNumberHandler" key="NS.rounding">
 																<int key="NS.roundingmode">3</int>
 																<bool key="NS.raise.overflow">YES</bool>
@@ -529,7 +529,7 @@
 								<int key="NSCellFlags2">-1874852864</int>
 								<string key="NSContents">start time</string>
 								<reference key="NSSupport" ref="739953033"/>
-								<object class="NSDateFormatter" key="NSFormatter" id="887183081">
+								<object class="NSDateFormatter" key="NSFormatter" id="858718440">
 									<dictionary class="NSMutableDictionary" key="NS.attributes">
 										<integer value="1" key="dateStyle"/>
 										<boolean value="YES" key="doesRelativeDateFormatting"/>
@@ -560,7 +560,7 @@
 								<int key="NSCellFlags2">-1874852864</int>
 								<string key="NSContents">end time</string>
 								<reference key="NSSupport" ref="739953033"/>
-								<object class="NSDateFormatter" key="NSFormatter" id="787663449">
+								<object class="NSDateFormatter" key="NSFormatter" id="874321583">
 									<dictionary class="NSMutableDictionary" key="NS.attributes">
 										<integer value="1" key="dateStyle"/>
 										<boolean value="YES" key="doesRelativeDateFormatting"/>
@@ -612,7 +612,7 @@
 								<int key="NSCellFlags2">-1874852864</int>
 								<string key="NSContents">$0.00</string>
 								<reference key="NSSupport" ref="739953033"/>
-								<object class="NSNumberFormatter" key="NSFormatter" id="553338073">
+								<object class="NSNumberFormatter" key="NSFormatter" id="138833353">
 									<dictionary class="NSMutableDictionary" key="NS.attributes">
 										<boolean value="YES" key="allowsFloats"/>
 										<integer value="1040" key="formatterBehavior"/>
@@ -633,10 +633,10 @@
 									</object>
 									<object class="NSAttributedString" key="NS.nan">
 										<string key="NSString">NaN</string>
-										<reference key="NSAttributes" ref="299751698"/>
+										<reference key="NSAttributes" ref="1022080535"/>
 									</object>
 									<real value="0.0" key="NS.min"/>
-									<reference key="NS.max" ref="506856714"/>
+									<reference key="NS.max" ref="275845251"/>
 									<object class="NSDecimalNumberHandler" key="NS.rounding">
 										<int key="NS.roundingmode">3</int>
 										<bool key="NS.raise.overflow">YES</bool>
@@ -733,11 +733,11 @@
 								<int key="NSCellFlags2">-1874852864</int>
 								<string key="NSContents">$0.00</string>
 								<reference key="NSSupport" ref="739953033"/>
-								<object class="NSNumberFormatter" key="NSFormatter" id="252884339">
+								<object class="NSNumberFormatter" key="NSFormatter" id="719752000">
 									<dictionary class="NSMutableDictionary" key="NS.attributes">
 										<boolean value="YES" key="allowsFloats"/>
 										<integer value="1040" key="formatterBehavior"/>
-										<reference key="locale" ref="273036640"/>
+										<reference key="locale" ref="504279760"/>
 										<real value="0.0" key="minimum"/>
 										<string key="negativeInfinitySymbol">-∞</string>
 										<string key="nilSymbol"/>
@@ -754,10 +754,10 @@
 									</object>
 									<object class="NSAttributedString" key="NS.nan">
 										<string key="NSString">NaN</string>
-										<reference key="NSAttributes" ref="299751698"/>
+										<reference key="NSAttributes" ref="1022080535"/>
 									</object>
 									<real value="0.0" key="NS.min"/>
-									<reference key="NS.max" ref="506856714"/>
+									<reference key="NS.max" ref="275845251"/>
 									<object class="NSDecimalNumberHandler" key="NS.rounding">
 										<int key="NS.roundingmode">3</int>
 										<bool key="NS.raise.overflow">YES</bool>
@@ -788,7 +788,12 @@
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
-			<object class="NSArrayController" id="307822540">
+			<object class="NSArrayController" id="848726297">
+				<array class="NSMutableArray" key="NSDeclaredKeys">
+					<string>name</string>
+					<string>hourlyRate</string>
+				</array>
+				<string key="NSObjectClassName">Person</string>
 				<bool key="NSEditable">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
 				<bool key="NSAvoidsEmptySelection">YES</bool>
@@ -800,7 +805,7 @@
 			<object class="NSCustomObject" id="796877042">
 				<string key="NSClassName">NSApplication</string>
 			</object>
-			<object class="NSUserDefaultsController" id="133673210">
+			<object class="NSUserDefaultsController" id="60523886">
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 		</array>
@@ -856,6 +861,38 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.name</string>
+						<reference key="source" ref="774856240"/>
+						<reference key="destination" ref="848726297"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="774856240"/>
+							<reference key="NSDestination" ref="848726297"/>
+							<string key="NSLabel">value: arrangedObjects.name</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.name</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100184</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.hourlyRate</string>
+						<reference key="source" ref="153029086"/>
+						<reference key="destination" ref="848726297"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="153029086"/>
+							<reference key="NSDestination" ref="848726297"/>
+							<string key="NSLabel">value: arrangedObjects.hourlyRate</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.hourlyRate</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100186</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: self.meeting.startingTime</string>
 						<reference key="source" ref="780960492"/>
 						<reference key="destination" ref="512844837"/>
@@ -885,6 +922,22 @@
 						</object>
 					</object>
 					<int key="connectionID">100146</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: self.meeting.elapsedTimeDisplayString</string>
+						<reference key="source" ref="242345685"/>
+						<reference key="destination" ref="512844837"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="242345685"/>
+							<reference key="NSDestination" ref="512844837"/>
+							<string key="NSLabel">value: self.meeting.elapsedTimeDisplayString</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">self.meeting.elapsedTimeDisplayString</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100172</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -921,6 +974,38 @@
 						</object>
 					</object>
 					<int key="connectionID">100157</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: self.meeting.totalBillingRate</string>
+						<reference key="source" ref="428699784"/>
+						<reference key="destination" ref="512844837"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="428699784"/>
+							<reference key="NSDestination" ref="512844837"/>
+							<string key="NSLabel">value: self.meeting.totalBillingRate</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">self.meeting.totalBillingRate</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100175</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">contentArray: self.meeting.personsPresent</string>
+						<reference key="source" ref="848726297"/>
+						<reference key="destination" ref="512844837"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="848726297"/>
+							<reference key="NSDestination" ref="512844837"/>
+							<string key="NSLabel">contentArray: self.meeting.personsPresent</string>
+							<string key="NSBinding">contentArray</string>
+							<string key="NSKeyPath">self.meeting.personsPresent</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100182</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1673,7 +1758,7 @@
 						<int key="objectID">100051</int>
 						<reference key="object" ref="90333308"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="278969834"/>
+							<reference ref="699078163"/>
 						</array>
 						<reference key="parent" ref="153029086"/>
 					</object>
@@ -1791,7 +1876,7 @@
 						<int key="objectID">100077</int>
 						<reference key="object" ref="414028578"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="887183081"/>
+							<reference ref="858718440"/>
 						</array>
 						<reference key="parent" ref="780960492"/>
 					</object>
@@ -1817,7 +1902,7 @@
 						<int key="objectID">100081</int>
 						<reference key="object" ref="609544920"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="787663449"/>
+							<reference ref="874321583"/>
 						</array>
 						<reference key="parent" ref="180673429"/>
 					</object>
@@ -1856,7 +1941,7 @@
 						<int key="objectID">100090</int>
 						<reference key="object" ref="20621383"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="553338073"/>
+							<reference ref="138833353"/>
 						</array>
 						<reference key="parent" ref="491611332"/>
 					</object>
@@ -1956,7 +2041,7 @@
 						<int key="objectID">100126</int>
 						<reference key="object" ref="58410412"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="252884339"/>
+							<reference ref="719752000"/>
 						</array>
 						<reference key="parent" ref="428699784"/>
 					</object>
@@ -1997,37 +2082,37 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100135</int>
-						<reference key="object" ref="133673210"/>
+						<reference key="object" ref="60523886"/>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100160</int>
-						<reference key="object" ref="887183081"/>
+						<reference key="object" ref="858718440"/>
 						<reference key="parent" ref="414028578"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100161</int>
-						<reference key="object" ref="787663449"/>
+						<reference key="object" ref="874321583"/>
 						<reference key="parent" ref="609544920"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100162</int>
-						<reference key="object" ref="553338073"/>
+						<reference key="object" ref="138833353"/>
 						<reference key="parent" ref="20621383"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100163</int>
-						<reference key="object" ref="252884339"/>
+						<reference key="object" ref="719752000"/>
 						<reference key="parent" ref="58410412"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100166</int>
-						<reference key="object" ref="307822540"/>
+						<reference key="object" ref="848726297"/>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100167</int>
-						<reference key="object" ref="278969834"/>
+						<reference key="object" ref="699078163"/>
 						<reference key="parent" ref="90333308"/>
 					</object>
 				</array>
@@ -2188,7 +2273,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100169</int>
+			<int key="maxID">100186</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

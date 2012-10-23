@@ -67,6 +67,8 @@
     [super dealloc];
 }
 
+#pragma mark - Description
+
 - (NSString*)description
 {
     NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
@@ -183,13 +185,14 @@
     [[self personsPresent] enumerateObjectsUsingBlock:^(id p, NSUInteger idx, BOOL *stop){
         total += [[p hourlyRate] doubleValue];
     }];
-    NSLog(@"calculated total: %f", total);
     return [[[NSNumber alloc] initWithDouble:total] autorelease];
 }
 
 - (NSNumber*)accruedCost
 {
     double cost = [[self totalBillingRate] doubleValue] * [self elapsedHours];
-    return [[[NSNumber alloc] initWithDouble:cost] autorelease];
+    NSNumber *value = [[[NSNumber alloc] initWithDouble:cost] autorelease];
+    NSLog(@"accruedCost calculated: %@", value);
+    return value;
 }
 @end
