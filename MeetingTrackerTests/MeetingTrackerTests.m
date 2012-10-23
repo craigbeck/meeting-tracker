@@ -56,14 +56,5 @@
     STAssertEqualsWithAccuracy([[meeting totalBillingRate] doubleValue], 15.0, 0.01, @"meeting rate nexpected");
 }
 
-- (void)testEncapsulationViolation
-{
-    Meeting *meeting = [Meeting meetingWithCaptains];
-    NSMutableArray *people = [meeting personsPresent];
-    Person *larry = [[Person alloc] initWithName:@"Larry" rate:33.3];
-    [people insertObject:larry atIndex:0];
-    STAssertEquals([[meeting personsPresent] count], (NSUInteger)3, @"should be 3 but was %li", [[meeting personsPresent] count]);
-    STAssertEquals([people count], (NSUInteger)4, @"should be 4 but was %li", [people count]);
-}
 
 @end
