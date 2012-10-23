@@ -19,7 +19,7 @@
     self = [super init];
     if (self) {
         // Add your subclass-specific initialization here.
-        _meeting = [[Meeting meetingWithCaptains] retain];
+        _meeting = [[[Meeting alloc] init] retain];
         _isMeetingStarted = NO;
     }
     NSLog(@"init finished");
@@ -56,6 +56,8 @@
                                                   userInfo:nil
                                                    repeats:YES]];
     [self updateUI:[self timer]];
+    [_startMeetingButton setEnabled:![self isMeetingStarted]];
+    [_stopMeetingButton setEnabled:[self isMeetingStarted]];
 }
 
 - (void)windowWillClose:(NSNotification *)notification
@@ -110,6 +112,8 @@
 {
     NSLog(@"meeting started");
     _isMeetingStarted = YES;
+    [_startMeetingButton setEnabled:![self isMeetingStarted]];
+    [_stopMeetingButton setEnabled:[self isMeetingStarted]];
     [[self meeting] setStartingTime:[NSDate date]];
 }
 
@@ -117,6 +121,8 @@
 {
     NSLog(@"meeting stopped");
     _isMeetingStarted = NO;
+    [_startMeetingButton setEnabled:![self isMeetingStarted]];
+    [_stopMeetingButton setEnabled:[self isMeetingStarted]];
     [[self meeting] setEndingTime:[NSDate date]];
 }
 
