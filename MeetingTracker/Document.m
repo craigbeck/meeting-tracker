@@ -8,6 +8,7 @@
 
 #import "Document.h"
 #import "Meeting.h"
+#import "Person.h"
 
 @implementation Document
 
@@ -117,6 +118,8 @@
 - (IBAction)addParticipant:(id)sender
 {
     NSLog(@"add participant");
+    Person *person = [[[Person alloc] init] autorelease];
+    [[self meeting] addToPersonsPresent:person];
 }
 
 - (IBAction)removeParticipant:(id)sender
