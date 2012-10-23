@@ -55,7 +55,6 @@
                                                   selector:@selector(updateUI:)
                                                   userInfo:nil
                                                    repeats:YES]];
-    [_meeting setStartingTime:[NSDate date]];
     [self updateUI:[self timer]];
 }
 
