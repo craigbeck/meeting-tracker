@@ -13,6 +13,7 @@
 + (id)meetingWithCaptains;
 + (id)meetingWithMarxBrothers;
 + (id)meetingWithStooges;
++ (id)meetingWithDogs;
 
 - (NSDate *)startingTime;
 - (void)setStartingTime:(NSDate *)aStartingTime;

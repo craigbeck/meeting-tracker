@@ -46,6 +46,29 @@
     return [meeting autorelease];
 }
 
++ (id)meetingWithDogs
+{
+    // blonde, blue, brown, orange, pink, white
+    Meeting* meeting = [[Meeting alloc] init];
+    [meeting insertObject:[[[Person alloc] initWithName:@"Mr. Blonde" rate:25.] autorelease] inPersonsPresentAtIndex:0];
+    [meeting insertObject:[[[Person alloc] initWithName:@"Mr. Blue" rate:25.] autorelease] inPersonsPresentAtIndex:0];
+    [meeting insertObject:[[[Person alloc] initWithName:@"Mr. Brown" rate:25.] autorelease] inPersonsPresentAtIndex:0];
+    [meeting insertObject:[[[Person alloc] initWithName:@"Mr. Orange" rate:25.] autorelease] inPersonsPresentAtIndex:0];
+    [meeting insertObject:[[[Person alloc] initWithName:@"Mr. Pink" rate:25.] autorelease] inPersonsPresentAtIndex:0];
+    [meeting insertObject:[[[Person alloc] initWithName:@"Mr. White" rate:25.] autorelease] inPersonsPresentAtIndex:0];
+    
+    return [meeting autorelease];
+}
+
+#pragma mark - KVO Methods
+
++ (NSSet *)keyPathsForValuesAffectingValueForTotalBillingRate
+{
+    NSSet *keyPaths = [NSSet setWithArray:@[@"self.personsPresent.hourlyRate"]];
+    NSLog(@"keys: %@", keyPaths);
+    return keyPaths;
+}
+
 #pragma mark - Object Creation
 
 - (id)init
