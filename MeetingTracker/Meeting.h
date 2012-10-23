@@ -14,11 +14,11 @@
 + (id)meetingWithMarxBrothers;
 + (id)meetingWithStooges;
 
-- (NSDate*)startingTime;
+- (NSDate *)startingTime;
 - (void)setStartingTime:(NSDate *)aStartingTime;
-- (NSDate*)endingTime;
+- (NSDate *)endingTime;
 - (void)setEndingTime:(NSDate*)anEndingTime;
-- (NSMutableArray*)personsPresent;
+- (NSMutableArray *)personsPresent;
 - (void)setPersonsPresent:(NSArray*)people;
 - (void)addToPersonsPresent:(id)person;
 - (void)removeFromPersonsPresent:(id)personsPresentObject;
@@ -28,6 +28,6 @@
 - (NSUInteger)elapsedSeconds;
 - (double)elapsedHours;
 - (NSString *)elapsedTimeDisplayString;
-- (NSNumber*)accruedCost;
-- (NSNumber*)totalBillingRate;
+- (NSNumber *)accruedCost;
+- (NSNumber *)totalBillingRate;
 @end

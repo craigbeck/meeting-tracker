@@ -84,6 +84,21 @@
     return YES;
 }
 
+#pragma mark - Meeting property
+
+- (Meeting *)meeting
+{
+    return _meeting;
+}
+
+- (void)setMeeting:(Meeting *)aMeeting
+{
+    if (_meeting == aMeeting) return;
+    [aMeeting retain];
+    [_meeting release];
+    _meeting = aMeeting;
+}
+
 #pragma mark - Logging Actions
 
 - (IBAction)logMeeting:(id)sender

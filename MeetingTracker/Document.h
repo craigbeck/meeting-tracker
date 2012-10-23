@@ -18,11 +18,13 @@
 @property (assign) IBOutlet NSTextField *currentTimeLabel;
 @property (assign) IBOutlet NSDateFormatter *currentTimeFormatter;
 
+- (Meeting *)meeting;
+- (void)setMeeting:(Meeting *)aMeeting;
 - (IBAction)logMeeting:(id)sender;
 - (IBAction)logParticipants:(id)sender;
 - (void)updateUI:(NSTimer *)timer;
 
-- (void)setTimer:(NSTimer *)timer;
 - (NSTimer *)timer;
+- (void)setTimer:(NSTimer *)timer;
 
 @end

@@ -11,8 +11,8 @@
 
 @implementation Meeting
 {
-    NSDate *_startTime;
-    NSDate *_endTime;
+    NSDate *_startingTime;
+    NSDate *_endingTime;
     NSMutableArray *_persons;
 }
 
@@ -54,7 +54,7 @@
     if (self)
     {
         _persons = [[[NSMutableArray alloc] init] retain];
-        _startTime = nil;
+        _startingTime = nil;
     }
     return self;
 }
@@ -123,14 +123,14 @@
 
 - (NSDate*)startingTime
 {
-    return [[_startTime copy] autorelease];
+    return [[_startingTime copy] autorelease];
 }
 
 - (void)setStartingTime:(NSDate *)start
 {
-    if (start == _startTime) return;
-    [_startTime release];
-    _startTime = [[start copy] retain];
+    if (start == _startingTime) return;
+    [_startingTime release];
+    _startingTime = [[start copy] retain];
     // clear end time if start time > end time
     if ([start compare:[self endingTime]] == NSOrderedDescending)
     {
@@ -140,17 +140,17 @@
 
 - (NSDate*)endingTime
 {
-    return [[_endTime copy] autorelease];
+    return [[_endingTime copy] autorelease];
 }
 
 - (void)setEndingTime:(NSDate *)end
 {
-    if (end == _endTime) return;
+    if (end == _endingTime) return;
     // do not allow setting of end time < start time
     if ([end compare:[self startingTime]] == NSOrderedAscending) return;
     [end retain];
-    [_endTime release];
-    _endTime = [[end copy] retain];
+    [_endingTime release];
+    _endingTime = [[end copy] retain];
 }
 
 - (NSUInteger)elapsedSeconds
@@ -183,6 +183,7 @@
     [[self personsPresent] enumerateObjectsUsingBlock:^(id p, NSUInteger idx, BOOL *stop){
         total += [[p hourlyRate] doubleValue];
     }];
+    NSLog(@"calculated total: %f", total);
     return [[[NSNumber alloc] initWithDouble:total] autorelease];
 }
 
