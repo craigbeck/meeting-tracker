@@ -26,8 +26,11 @@
 
 - (void)dealloc
 {
-    [self setTimer:nil];
+    [_timer release];
+    _timer = nil;
+    
     [_meeting release];
+    _meeting = nil;
     
     [super dealloc];
 }
@@ -115,12 +118,12 @@
 
 - (IBAction)logMeeting:(id)sender
 {
-    NSLog(@"%@", _meeting);
+    NSLog(@"%@", [self meeting]);
 }
 
 - (IBAction)logParticipants:(id)sender
 {
-    NSLog(@"%@", [_meeting personsPresent]);
+    NSLog(@"%@", [[self meeting] personsPresent]);
 }
 
 #pragma mark - UI Methods
