@@ -45,7 +45,7 @@
 {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
-    [self setTimer:[NSTimer scheduledTimerWithTimeInterval:0.2
+    [self setTimer:[NSTimer scheduledTimerWithTimeInterval:1.0
                                                     target:self
                                                   selector:@selector(updateUI:)
                                                   userInfo:nil
@@ -99,6 +99,18 @@
     _meeting = aMeeting;
 }
 
+#pragma mark - Meeting Actions
+
+- (IBAction)startMeeting:(id)sender
+{
+    NSLog(@"meeting started");
+}
+
+- (IBAction)stopMeeting:(id)sender
+{
+    NSLog(@"meeting stopped");
+}
+
 #pragma mark - Logging Actions
 
 - (IBAction)logMeeting:(id)sender
@@ -115,6 +127,10 @@
 
 - (void)updateUI:(NSTimer *)timer  {
     [[self currentTimeLabel] setStringValue:[NSString stringWithFormat:@"%@", [NSDate date]]];
+    [[self meeting] willChangeValueForKey:@"accruedCost"];
+    [[self meeting] didChangeValueForKey:@"accruedCost"];
+    [[self meeting] willChangeValueForKey:@"elapsedTimeDisplayString"];
+    [[self meeting] didChangeValueForKey:@"elapsedTimeDisplayString"];
 }
 
 #pragma mark - Property Accessors
@@ -128,7 +144,7 @@
 
 - (NSTimer *)timer
 {
-    return [[_timer copy] autorelease];
+    return _timer;
 }
 
 @end

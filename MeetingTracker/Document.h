@@ -17,6 +17,11 @@
 
 @property (assign) IBOutlet NSTextField *currentTimeLabel;
 @property (assign) IBOutlet NSDateFormatter *currentTimeFormatter;
+@property (assign) IBOutlet NSButton *startMeetingButton;
+@property (assign) IBOutlet NSButton *stopMeetingButton;
+
+- (IBAction)startMeeting:(id)sender;
+- (IBAction)stopMeeting:(id)sender;
 
 - (Meeting *)meeting;
 - (void)setMeeting:(Meeting *)aMeeting;

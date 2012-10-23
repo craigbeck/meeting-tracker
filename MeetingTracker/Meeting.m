@@ -13,7 +13,7 @@
 {
     NSDate *_startingTime;
     NSDate *_endingTime;
-    NSMutableArray *_persons;
+    NSMutableArray *_personsPresent;
 }
 
 
@@ -53,7 +53,7 @@
     self = [super init];
     if (self)
     {
-        _persons = [[[NSMutableArray alloc] init] retain];
+        _personsPresent = [[[NSMutableArray alloc] init] retain];
         _startingTime = nil;
     }
     return self;
@@ -84,21 +84,21 @@
 
 #pragma mark - Praticipant Methods
 
-- (NSArray*)personsPresent
+- (NSMutableArray*)personsPresent
 {
-    return [[[NSMutableArray alloc] initWithArray:_persons] autorelease];
+    return _personsPresent;
 }
 
 - (void)setPersonsPresent:(NSArray *)people
 {
-    if (people == _persons) return;
-    [_persons release];
-    _persons = [[[NSMutableArray alloc] initWithArray:people] retain];
+    if (people == _personsPresent) return;
+    [_personsPresent release];
+    _personsPresent = [[[NSMutableArray alloc] initWithArray:people] retain];
 }
 
 - (void)insertObject:(id)object inPersonsPresentAtIndex:(NSUInteger)idx
 {
-    [_persons insertObject:object atIndex:idx];
+    [_personsPresent insertObject:object atIndex:idx];
 }
 
 - (void)addToPersonsPresent:(id)person
@@ -108,17 +108,17 @@
 
 - (void)removeFromPersonsPresent:(id)personsPresentObject
 {
-    [_persons removeObject:personsPresentObject];
+    [_personsPresent removeObject:personsPresentObject];
 }
 
 - (void)removeObjectFromPersonsPresentAtIndex:(NSUInteger)idx
 {
-    [_persons removeObjectAtIndex:idx];
+    [_personsPresent removeObjectAtIndex:idx];
 }
 
 - (NSUInteger)countOfPersonsPresent
 {
-    return [_persons count];
+    return [_personsPresent count];
 }
 
 #pragma mark - Time Methods
@@ -192,7 +192,6 @@
 {
     double cost = [[self totalBillingRate] doubleValue] * [self elapsedHours];
     NSNumber *value = [[[NSNumber alloc] initWithDouble:cost] autorelease];
-    NSLog(@"accruedCost calculated: %@", value);
     return value;
 }
 @end
