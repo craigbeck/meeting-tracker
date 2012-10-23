@@ -20,6 +20,7 @@
     if (self) {
         // Add your subclass-specific initialization here.
         _meeting = [[Meeting meetingWithCaptains] retain];
+        _isMeetingStarted = NO;
     }
     NSLog(@"init finished");
     return self;
@@ -55,6 +56,7 @@
                                                   userInfo:nil
                                                    repeats:YES]];
     [_meeting setStartingTime:[NSDate date]];
+    [self updateUI:[self timer]];
 }
 
 - (void)windowWillClose:(NSNotification *)notification
@@ -108,11 +110,20 @@
 - (IBAction)startMeeting:(id)sender
 {
     NSLog(@"meeting started");
+    _isMeetingStarted = YES;
+    [[self meeting] setStartingTime:[NSDate date]];
 }
 
 - (IBAction)stopMeeting:(id)sender
 {
     NSLog(@"meeting stopped");
+    _isMeetingStarted = NO;
+    [[self meeting] setEndingTime:[NSDate date]];
+}
+
+- (BOOL)isMeetingStarted
+{
+    return _isMeetingStarted;
 }
 
 - (IBAction)addParticipant:(id)sender

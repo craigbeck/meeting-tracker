@@ -12,7 +12,8 @@
 
 @interface Document : NSDocument {
     NSTimer *_timer;
-    Meeting *_meeting; 
+    Meeting *_meeting;
+    BOOL _isMeetingStarted;
 }
 
 @property (assign) IBOutlet NSTextField *currentTimeLabel;
@@ -30,7 +31,7 @@
 - (IBAction)logMeeting:(id)sender;
 - (IBAction)logParticipants:(id)sender;
 - (void)updateUI:(NSTimer *)timer;
-
+- (BOOL)isMeetingStarted;
 
 - (NSTimer *)timer;
 - (void)setTimer:(NSTimer *)timer;
