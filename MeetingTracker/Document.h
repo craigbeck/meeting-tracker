@@ -22,12 +22,15 @@
 
 - (IBAction)startMeeting:(id)sender;
 - (IBAction)stopMeeting:(id)sender;
+- (IBAction)addParticipant:(id)sender;
+- (IBAction)removeParticipant:(id)sender;
 
 - (Meeting *)meeting;
 - (void)setMeeting:(Meeting *)aMeeting;
 - (IBAction)logMeeting:(id)sender;
 - (IBAction)logParticipants:(id)sender;
 - (void)updateUI:(NSTimer *)timer;
+
 
 - (NSTimer *)timer;
 - (void)setTimer:(NSTimer *)timer;

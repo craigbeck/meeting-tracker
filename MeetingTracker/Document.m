@@ -114,6 +114,16 @@
     NSLog(@"meeting stopped");
 }
 
+- (IBAction)addParticipant:(id)sender
+{
+    NSLog(@"add participant");
+}
+
+- (IBAction)removeParticipant:(id)sender
+{
+    NSLog(@"remove participant");
+}
+
 #pragma mark - Logging Actions
 
 - (IBAction)logMeeting:(id)sender
