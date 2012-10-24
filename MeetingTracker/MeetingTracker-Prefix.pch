@@ -5,3 +5,13 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif
+
+
+#if DEBUG
+#define Log(args...)    NSLog( @"%@", [NSString stringWithFormat: args])
+#define LogMethod() NSLog(@"%s (line %d) %@",PRETTY_FUNCTION__, __LINE__, [NSThread currentThread])
+#else
+// DEBUG not defined:
+#define Log(args...)
+#define LogMethod()
+#endif

@@ -22,7 +22,7 @@
         _meeting = [[[Meeting alloc] init] retain];
         _isMeetingStarted = NO;
     }
-    NSLog(@"init finished");
+    Log(@"init finished");
     return self;
 }
 
@@ -62,7 +62,7 @@
 
 - (void)windowWillClose:(NSNotification *)notification
 {
-    NSLog(@"windowWillClose");
+    Log(@"windowWillClose");
     [[self timer] invalidate];
 }
 
@@ -110,7 +110,7 @@
 
 - (IBAction)startMeeting:(id)sender
 {
-    NSLog(@"meeting started");
+    Log(@"meeting started");
     _isMeetingStarted = YES;
     [_startMeetingButton setEnabled:![self isMeetingStarted]];
     [_stopMeetingButton setEnabled:[self isMeetingStarted]];
@@ -119,7 +119,7 @@
 
 - (IBAction)stopMeeting:(id)sender
 {
-    NSLog(@"meeting stopped");
+    Log(@"meeting stopped");
     _isMeetingStarted = NO;
     [_startMeetingButton setEnabled:![self isMeetingStarted]];
     [_stopMeetingButton setEnabled:[self isMeetingStarted]];
@@ -133,26 +133,26 @@
 
 - (IBAction)addParticipant:(id)sender
 {
-    NSLog(@"add participant");
+    Log(@"add participant");
     Person *person = [[[Person alloc] init] autorelease];
     [[self meeting] addToPersonsPresent:person];
 }
 
 - (IBAction)removeParticipant:(id)sender
 {
-    NSLog(@"remove participant");
+    Log(@"remove participant");
 }
 
 #pragma mark - Logging Actions
 
 - (IBAction)logMeeting:(id)sender
 {
-    NSLog(@"%@", [self meeting]);
+    Log(@"%@", [self meeting]);
 }
 
 - (IBAction)logParticipants:(id)sender
 {
-    NSLog(@"%@", [[self meeting] personsPresent]);
+    Log(@"%@", [[self meeting] personsPresent]);
 }
 
 #pragma mark - UI Methods
