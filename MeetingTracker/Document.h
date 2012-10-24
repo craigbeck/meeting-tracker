@@ -23,9 +23,6 @@
 
 - (IBAction)startMeeting:(id)sender;
 - (IBAction)stopMeeting:(id)sender;
-- (IBAction)addParticipant:(id)sender;
-- (IBAction)removeParticipant:(id)sender;
-
 - (Meeting *)meeting;
 - (void)setMeeting:(Meeting *)aMeeting;
 - (IBAction)logMeeting:(id)sender;
@@ -35,5 +32,6 @@
 
 - (NSTimer *)timer;
 - (void)setTimer:(NSTimer *)timer;
+- (NSDate *)currentTime;
 
 @end

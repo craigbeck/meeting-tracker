@@ -22,7 +22,6 @@
         _meeting = [[[Meeting alloc] init] retain];
         _isMeetingStarted = NO;
     }
-    Log(@"init finished");
     return self;
 }
 
@@ -62,7 +61,6 @@
 
 - (void)windowWillClose:(NSNotification *)notification
 {
-    Log(@"windowWillClose");
     [[self timer] invalidate];
 }
 
@@ -110,7 +108,6 @@
 
 - (IBAction)startMeeting:(id)sender
 {
-    Log(@"meeting started");
     _isMeetingStarted = YES;
     [_startMeetingButton setEnabled:![self isMeetingStarted]];
     [_stopMeetingButton setEnabled:[self isMeetingStarted]];
@@ -119,7 +116,6 @@
 
 - (IBAction)stopMeeting:(id)sender
 {
-    Log(@"meeting stopped");
     _isMeetingStarted = NO;
     [_startMeetingButton setEnabled:![self isMeetingStarted]];
     [_stopMeetingButton setEnabled:[self isMeetingStarted]];
@@ -129,18 +125,6 @@
 - (BOOL)isMeetingStarted
 {
     return _isMeetingStarted;
-}
-
-- (IBAction)addParticipant:(id)sender
-{
-    Log(@"add participant");
-    Person *person = [[[Person alloc] init] autorelease];
-    [[self meeting] addToPersonsPresent:person];
-}
-
-- (IBAction)removeParticipant:(id)sender
-{
-    Log(@"remove participant");
 }
 
 #pragma mark - Logging Actions
@@ -157,8 +141,10 @@
 
 #pragma mark - UI Methods
 
-- (void)updateUI:(NSTimer *)timer  {
-    [[self currentTimeLabel] setStringValue:[NSString stringWithFormat:@"%@", [NSDate date]]];
+- (void)updateUI:(NSTimer *)timer
+{
+    [[self meeting] willChangeValueForKey:@"currentTime"];
+    [[self meeting] didChangeValueForKey:@"currentTime"];
     [[self meeting] willChangeValueForKey:@"accruedCost"];
     [[self meeting] didChangeValueForKey:@"accruedCost"];
     [[self meeting] willChangeValueForKey:@"elapsedTimeDisplayString"];
@@ -177,6 +163,11 @@
 - (NSTimer *)timer
 {
     return _timer;
+}
+
+- (NSDate *)currentTime
+{
+    return [NSDate date];
 }
 
 @end
