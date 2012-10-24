@@ -36,7 +36,6 @@
 {
     [self setName:nil];
     [self setHourlyRate:nil];
-    
     [super dealloc];
 }
 
@@ -74,4 +73,23 @@
     [currencyFormatter release];
     return [description autorelease];
 }
+
+#pragma mark - Archiving Methods
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    if (self = [super init])
+    {
+        _name = [[coder decodeObjectForKey:@"name"] retain];
+        _hourlyRate = [[coder decodeObjectForKey:@"hourlyRate"] retain];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:[self name] forKey:@"name"];
+    [coder encodeObject:[self hourlyRate] forKey:@"hourlyRate"];
+}
+
 @end

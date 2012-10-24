@@ -246,4 +246,25 @@
     NSNumber *value = [[[NSNumber alloc] initWithDouble:cost] autorelease];
     return value;
 }
+
+#pragma mark - Archiving Methods
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    if (self = [super init])
+    {
+        _startingTime = [[coder decodeObjectForKey:@"startingTime"] retain];
+        _endingTime = [[coder decodeObjectForKey:@"endingTime"] retain];
+        _personsPresent = [[coder decodeObjectForKey:@"personsPresent"] retain];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:[self startingTime] forKey:@"startingTime"];
+    [coder encodeObject:[self endingTime] forKey:@"endingTime"];
+    [coder encodeObject:[self personsPresent] forKey:@"personsPresent"];
+}
+
 @end
