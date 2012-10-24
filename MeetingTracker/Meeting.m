@@ -22,15 +22,13 @@
 + (id)meetingWithCaptains
 {
     Meeting* meeting = [[Meeting alloc] init];
-//    [meeting insertObject:[[[Person alloc] initWithName:@"Picard" rate:312.5] autorelease] inPersonsPresentAtIndex:0];
-//    [meeting insertObject:[[[Person alloc] initWithName:@"Kirk" rate:212.5] autorelease] inPersonsPresentAtIndex:0];
-//    [meeting insertObject:[[[Person alloc] initWithName:@"Joe" rate:32.5] autorelease] inPersonsPresentAtIndex:0];
     
     NSArray *attendees = @[
         [[[Person alloc] initWithName:@"Picard" rate:32.5] autorelease],
         [[[Person alloc] initWithName:@"Kirk" rate:32.5] autorelease],
-        [[[Person alloc] initWithName:@"Jack" rate:32.5] autorelease],
+        [[[Person alloc] initWithName:@"Jack" rate:32.5] autorelease]
     ];
+    
     [meeting setPersonsPresent:attendees];
     return [meeting autorelease];
 }
