@@ -19,7 +19,8 @@
     self = [super init];
     if (self) {
         // Add your subclass-specific initialization here.
-        _meeting = [[[Meeting alloc] init] retain];
+//        _meeting = [[[Meeting alloc] init] retain];
+        _meeting = [[Meeting meetingWithCaptains] retain];
         _isMeetingStarted = NO;
     }
     Log(@"init finished");

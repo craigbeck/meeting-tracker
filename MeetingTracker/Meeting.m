@@ -22,9 +22,16 @@
 + (id)meetingWithCaptains
 {
     Meeting* meeting = [[Meeting alloc] init];
-    [meeting insertObject:[[[Person alloc] initWithName:@"Picard" rate:312.5] autorelease] inPersonsPresentAtIndex:0];
-    [meeting insertObject:[[[Person alloc] initWithName:@"Kirk" rate:212.5] autorelease] inPersonsPresentAtIndex:0];
-    [meeting insertObject:[[[Person alloc] initWithName:@"Joe" rate:32.5] autorelease] inPersonsPresentAtIndex:0];
+//    [meeting insertObject:[[[Person alloc] initWithName:@"Picard" rate:312.5] autorelease] inPersonsPresentAtIndex:0];
+//    [meeting insertObject:[[[Person alloc] initWithName:@"Kirk" rate:212.5] autorelease] inPersonsPresentAtIndex:0];
+//    [meeting insertObject:[[[Person alloc] initWithName:@"Joe" rate:32.5] autorelease] inPersonsPresentAtIndex:0];
+    
+    NSArray *attendees = @[
+        [[[Person alloc] initWithName:@"Picard" rate:32.5] autorelease],
+        [[[Person alloc] initWithName:@"Kirk" rate:32.5] autorelease],
+        [[[Person alloc] initWithName:@"Jack" rate:32.5] autorelease],
+    ];
+    [meeting setPersonsPresent:attendees];
     return [meeting autorelease];
 }
 
@@ -48,7 +55,6 @@
 
 + (id)meetingWithDogs
 {
-    // blonde, blue, brown, orange, pink, white
     Meeting* meeting = [[Meeting alloc] init];
     [meeting insertObject:[[[Person alloc] initWithName:@"Mr. Blonde" rate:25.] autorelease] inPersonsPresentAtIndex:0];
     [meeting insertObject:[[[Person alloc] initWithName:@"Mr. Blue" rate:25.] autorelease] inPersonsPresentAtIndex:0];
@@ -60,15 +66,6 @@
     return [meeting autorelease];
 }
 
-#pragma mark - KVO Methods
-
-+ (NSSet *)keyPathsForValuesAffectingValueForTotalBillingRate
-{
-    NSSet *keyPaths = [NSSet setWithArray:@[@"self.personsPresent.hourlyRate"]];
-    NSLog(@"keys: %@", keyPaths);
-    return keyPaths;
-}
-
 #pragma mark - Object Creation
 
 - (id)init
@@ -78,6 +75,7 @@
     {
         _personsPresent = [[[NSMutableArray alloc] init] retain];
         _startingTime = nil;
+        
     }
     return self;
 }
@@ -117,11 +115,17 @@
     if (people == _personsPresent) return;
     [_personsPresent release];
     _personsPresent = [[[NSMutableArray alloc] initWithArray:people] retain];
+    [_personsPresent enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+    {
+        [obj addObserver:self forKeyPath:@"hourlyRate" options:NSKeyValueObservingOptionNew context:NULL];
+    }];
+    [self notifyOfTotalBillingRateChange];
 }
 
 - (void)insertObject:(id)object inPersonsPresentAtIndex:(NSUInteger)idx
 {
-    [_personsPresent insertObject:object atIndex:idx];
+    [[self personsPresent] insertObject:object atIndex:idx];
+    [object addObserver:self forKeyPath:@"hourlyRate" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)addToPersonsPresent:(id)person
@@ -131,17 +135,38 @@
 
 - (void)removeFromPersonsPresent:(id)personsPresentObject
 {
-    [_personsPresent removeObject:personsPresentObject];
+    NSUInteger idx = [[self personsPresent] indexOfObject:personsPresentObject];
+    [self removeObjectFromPersonsPresentAtIndex:idx];
 }
 
 - (void)removeObjectFromPersonsPresentAtIndex:(NSUInteger)idx
 {
-    [_personsPresent removeObjectAtIndex:idx];
+    Person *person = [[self personsPresent] objectAtIndex:idx];
+    [[self personsPresent] removeObjectAtIndex:idx];
+    [person removeObserver:self forKeyPath:@"hourlyRate"];
+    [self notifyOfTotalBillingRateChange];
 }
 
 - (NSUInteger)countOfPersonsPresent
 {
-    return [_personsPresent count];
+    return [[self personsPresent] count];
+}
+
+#pragma mark - KVO Instance Methods
+
+- (void)notifyOfTotalBillingRateChange
+{
+    NSString *billingRateKey = @"totalBillingRate";
+    [self willChangeValueForKey:billingRateKey];
+    [self didChangeValueForKey:billingRateKey];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"hourlyRate"])
+    {
+        [self notifyOfTotalBillingRateChange];
+    }
 }
 
 #pragma mark - Time Methods
@@ -212,11 +237,7 @@
 
 - (NSNumber*)totalBillingRate
 {
-    __block double total = 0;
-    [[self personsPresent] enumerateObjectsUsingBlock:^(id p, NSUInteger idx, BOOL *stop){
-        total += [[p hourlyRate] doubleValue];
-    }];
-    return [[[NSNumber alloc] initWithDouble:total] autorelease];
+    return [[self personsPresent] valueForKeyPath:@"@sum.hourlyRate"];
 }
 
 - (NSNumber*)accruedCost
