@@ -24,8 +24,8 @@
 - add credits to about box
 
 ## Versioning.todo
-- bundle version changed to "123"
-- bundle version string to "3.0"
+- bundle version changed to "123" @done
+- bundle version string to "3.0" @done
 
 ## Completed.todo
 - static analyzer run
