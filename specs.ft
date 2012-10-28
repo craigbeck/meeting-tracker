@@ -1,0 +1,35 @@
+# Meeting Tracker III Specs
+
+## Undo.todo
+- undo add attendee
+- undo delete attendee
+- undo rate change
+- undo name change
+- default hourly rate
+
+## Preferences.todo
+- preferences window/xib
+- default billing rate
+- default name
+- bindings used to apply preferences
+
+## Meeting Menu.todo
+- "Meeting" menu
+- start meeting item
+- stop meeting item
+- reset meeting with **X** (captains, dogs, stooges, etc…)
+- File > New Meeting > with… menu?
+
+## About app.todo
+- add credits to about box
+
+## Versioning.todo
+- bundle version changed to "123"
+- bundle version string to "3.0"
+
+## Completed.todo
+- static analyzer run
+- no warnings present
+- clean build
+- repo archived to zip
+- uploaded
