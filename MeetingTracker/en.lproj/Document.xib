@@ -1019,19 +1019,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: self.meeting.totalBillingRate</string>
+						<string key="label">value: arrangedObjects.@sum.hourlyRate</string>
 						<reference key="source" ref="428699784"/>
-						<reference key="destination" ref="512844837"/>
+						<reference key="destination" ref="20218891"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="428699784"/>
-							<reference key="NSDestination" ref="512844837"/>
-							<string key="NSLabel">value: self.meeting.totalBillingRate</string>
+							<reference key="NSDestination" ref="20218891"/>
+							<string key="NSLabel">value: arrangedObjects.@sum.hourlyRate</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">self.meeting.totalBillingRate</string>
+							<string key="NSKeyPath">arrangedObjects.@sum.hourlyRate</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">100199</int>
+					<int key="connectionID">100230</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2331,7 +2331,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">100226</int>
+			<int key="maxID">100230</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
