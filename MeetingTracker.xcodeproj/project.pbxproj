@@ -18,6 +18,9 @@
 		931FB7AD162D25810069ABDA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931FB78A162D257F0069ABDA /* Cocoa.framework */; };
 		931FB7B5162D25810069ABDA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 931FB7B3162D25810069ABDA /* InfoPlist.strings */; };
 		931FB7B8162D25810069ABDA /* MeetingTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 931FB7B7162D25810069ABDA /* MeetingTrackerTests.m */; };
+		93317689163E3DF70012CCA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93317688163E3DF70012CCA2 /* AppDelegate.m */; };
+		93317690163E3E720012CCA2 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9331768E163E3E720012CCA2 /* PreferencesWindowController.m */; };
+		93317691163E3E720012CCA2 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9331768F163E3E720012CCA2 /* PreferencesWindowController.xib */; };
 		93AB9154162E74DF00170E08 /* testMeeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB9151162E74DF00170E08 /* testMeeting.m */; };
 		93AB9155162E74DF00170E08 /* testPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB9153162E74DF00170E08 /* testPerson.m */; };
 		93AB915A162E751C00170E08 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB9157162E751C00170E08 /* Meeting.m */; };
@@ -56,6 +59,11 @@
 		931FB7B4162D25810069ABDA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		931FB7B6162D25810069ABDA /* MeetingTrackerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingTrackerTests.h; sourceTree = "<group>"; };
 		931FB7B7162D25810069ABDA /* MeetingTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingTrackerTests.m; sourceTree = "<group>"; };
+		93317687163E3DF70012CCA2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		93317688163E3DF70012CCA2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9331768D163E3E720012CCA2 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
+		9331768E163E3E720012CCA2 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
+		9331768F163E3E720012CCA2 /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
 		93AB9150162E74DF00170E08 /* testMeeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testMeeting.h; sourceTree = "<group>"; };
 		93AB9151162E74DF00170E08 /* testMeeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testMeeting.m; sourceTree = "<group>"; };
 		93AB9152162E74DF00170E08 /* testPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testPerson.h; sourceTree = "<group>"; };
@@ -133,15 +141,12 @@
 		931FB790162D257F0069ABDA /* MeetingTracker */ = {
 			isa = PBXGroup;
 			children = (
-				93AB9156162E751C00170E08 /* Meeting.h */,
-				93AB9157162E751C00170E08 /* Meeting.m */,
-				93AB9158162E751C00170E08 /* Person.h */,
-				93AB9159162E751C00170E08 /* Person.m */,
-				931FB79C162D257F0069ABDA /* Document.h */,
-				931FB79D162D257F0069ABDA /* Document.m */,
-				931FB79F162D257F0069ABDA /* Document.xib */,
-				931FB7A2162D25800069ABDA /* MainMenu.xib */,
+				93317694163E3EB30012CCA2 /* Views */,
+				93317693163E3EA90012CCA2 /* Models */,
+				93317692163E3EA00012CCA2 /* Controllers */,
 				931FB791162D257F0069ABDA /* Supporting Files */,
+				93317687163E3DF70012CCA2 /* AppDelegate.h */,
+				93317688163E3DF70012CCA2 /* AppDelegate.m */,
 			);
 			path = MeetingTracker;
 			sourceTree = "<group>";
@@ -179,6 +184,38 @@
 				931FB7B3162D25810069ABDA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93317692163E3EA00012CCA2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				931FB79C162D257F0069ABDA /* Document.h */,
+				931FB79D162D257F0069ABDA /* Document.m */,
+				9331768D163E3E720012CCA2 /* PreferencesWindowController.h */,
+				9331768E163E3E720012CCA2 /* PreferencesWindowController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		93317693163E3EA90012CCA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93AB9156162E751C00170E08 /* Meeting.h */,
+				93AB9157162E751C00170E08 /* Meeting.m */,
+				93AB9158162E751C00170E08 /* Person.h */,
+				93AB9159162E751C00170E08 /* Person.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		93317694163E3EB30012CCA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9331768F163E3E720012CCA2 /* PreferencesWindowController.xib */,
+				931FB79F162D257F0069ABDA /* Document.xib */,
+				931FB7A2162D25800069ABDA /* MainMenu.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +294,7 @@
 				931FB7A1162D257F0069ABDA /* Document.xib in Resources */,
 				931FB7A4162D25800069ABDA /* MainMenu.xib in Resources */,
 				93C4F85016364C6A00FD1C5D /* purple_birdy.iconset in Resources */,
+				93317691163E3E720012CCA2 /* PreferencesWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +333,8 @@
 				931FB79E162D257F0069ABDA /* Document.m in Sources */,
 				93AB915A162E751C00170E08 /* Meeting.m in Sources */,
 				93AB915B162E751C00170E08 /* Person.m in Sources */,
+				93317689163E3DF70012CCA2 /* AppDelegate.m in Sources */,
+				93317690163E3E720012CCA2 /* PreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

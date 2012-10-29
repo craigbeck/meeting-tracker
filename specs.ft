@@ -14,9 +14,9 @@
 - bindings used to apply preferences
 
 ## Meeting Menu.todo
-- "Meeting" menu
-- start meeting item
-- stop meeting item
+- "Meeting" menu @done
+- start meeting item @done
+- stop meeting item @done
 - reset meeting with **X** (captains, dogs, stooges, etc…)
 - File > New Meeting > with… menu?
 
