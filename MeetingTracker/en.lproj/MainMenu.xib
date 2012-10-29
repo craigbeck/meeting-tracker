@@ -698,6 +698,30 @@
 					</object>
 					<int key="connectionID">562</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">resetWithCaptains:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="937303167"/>
+					</object>
+					<int key="connectionID">563</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">resetWithStooges:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="736212324"/>
+					</object>
+					<int key="connectionID">564</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">resetWithDogs:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="918931361"/>
+					</object>
+					<int key="connectionID">565</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -1180,7 +1204,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">562</int>
+			<int key="maxID">565</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1190,6 +1214,9 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="logMeeting:">id</string>
 						<string key="logParticipants:">id</string>
+						<string key="resetWithCaptains:">id</string>
+						<string key="resetWithDogs:">id</string>
+						<string key="resetWithStooges:">id</string>
 						<string key="startMeeting:">id</string>
 						<string key="stopMeeting:">id</string>
 					</dictionary>
@@ -1200,6 +1227,18 @@
 						</object>
 						<object class="IBActionInfo" key="logParticipants:">
 							<string key="name">logParticipants:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="resetWithCaptains:">
+							<string key="name">resetWithCaptains:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="resetWithDogs:">
+							<string key="name">resetWithDogs:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="resetWithStooges:">
+							<string key="name">resetWithStooges:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="startMeeting:">

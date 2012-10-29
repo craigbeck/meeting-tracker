@@ -34,4 +34,7 @@
 - (void)setTimer:(NSTimer *)timer;
 - (NSDate *)currentTime;
 
+- (IBAction)resetWithCaptains:(id)sender;
+- (IBAction)resetWithStooges:(id)sender;
+- (IBAction)resetWithDogs:(id)sender;
 @end

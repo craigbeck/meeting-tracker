@@ -179,4 +179,21 @@
     return [NSDate date];
 }
 
+#pragma mark - Reset methods
+
+- (IBAction)resetWithCaptains:(id)sender
+{
+    [self setMeeting:[Meeting meetingWithCaptains]];
+}
+
+- (IBAction)resetWithStooges:(id)sender
+{
+    [self setMeeting:[Meeting meetingWithStooges]];
+}
+
+- (IBAction)resetWithDogs:(id)sender
+{
+    [self setMeeting:[Meeting meetingWithDogs]];
+}
+
 @end
