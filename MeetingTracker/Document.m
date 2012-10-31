@@ -20,6 +20,7 @@
     if (self)
     {
         _meeting = [[[Meeting alloc] init] retain];
+        [_meeting addObserver:self forKeyPath:@"personsPresent" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
         _isMeetingStarted = NO;
     }
     return self;
@@ -109,6 +110,9 @@
 {
     if (_meeting == aMeeting) return;
     [aMeeting retain];
+    [[[self undoManager] prepareWithInvocationTarget:self] setMeeting:_meeting];
+    [aMeeting addObserver:self forKeyPath:@"personsPresent" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    [_meeting removeObserver:self forKeyPath:@"personsPresent"];
     [_meeting release];
     _meeting = aMeeting;
 }
