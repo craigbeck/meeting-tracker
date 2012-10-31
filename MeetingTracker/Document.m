@@ -41,8 +41,6 @@
 
 - (NSString *)windowNibName
 {
-    // Override returning the nib file name of the document
-    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
     return @"Document";
 }
 
@@ -127,19 +125,16 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     Person *person;
-    NSLog(@"object;%@ change:%@", object, change);
     if (keyPath == @"personsPresent")
     {
         switch ([[change objectForKey:@"kind"] intValue]) {
             case 2:
                 person = [[change objectForKey:@"new"] objectAtIndex:0];
-                NSLog(@"add: %@", person);
                 [self startObservingPerson:person];
                 [[[self undoManager] prepareWithInvocationTarget:[self meeting]] removeFromPersonsPresent:person];
                 break;
             case 3:
                 person = [[change objectForKey:@"old"] objectAtIndex:0];
-                NSLog(@"remove: %@", person);
                 [self stopObservingPerson:person];
                 [[[self undoManager] prepareWithInvocationTarget:[self meeting]] insertObject:person inPersonsPresentAtIndex:[[change objectForKey:@"indexes"] firstIndex]];
                 break;
@@ -174,7 +169,6 @@
 
 - (void)startObservingMeeting:(Meeting *)meeting
 {
-    LogMethod();
     [meeting addObserver:self forKeyPath:@"personsPresent" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     [[meeting personsPresent] enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop)
     {
@@ -193,14 +187,12 @@
 
 - (void)startObservingPerson:(Person *)person
 {
-    NSLog(@"start observing:%@", person);
     [person addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionOld context:nil];
     [person addObserver:self forKeyPath:@"hourlyRate" options:NSKeyValueObservingOptionOld context:nil];
 }
 
 - (void)stopObservingPerson:(Person *)person
 {
-    NSLog(@"stop observing:%@", person);
     [person removeObserver:self forKeyPath:@"name"];
     [person removeObserver:self forKeyPath:@"hourlyRate"];
 }
