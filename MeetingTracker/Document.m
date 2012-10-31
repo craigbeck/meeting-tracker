@@ -20,7 +20,7 @@
     if (self)
     {
         _meeting = [[[Meeting alloc] init] retain];
-        [_meeting addObserver:self forKeyPath:@"personsPresent" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+        [_meeting addObserver:self forKeyPath:kKeyPathPersonsPresent options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
         _isMeetingStarted = NO;
     }
     return self;
@@ -125,16 +125,16 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     Person *person;
-    if (keyPath == @"personsPresent")
+    if (keyPath == kKeyPathPersonsPresent)
     {
-        switch ([[change objectForKey:@"kind"] intValue]) {
-            case 2:
-                person = [[change objectForKey:@"new"] objectAtIndex:0];
+        switch ([[change objectForKey:kChangeKind] intValue]) {
+            case kChangeAdd:
+                person = [[change objectForKey:kNewObject] objectAtIndex:0];
                 [self startObservingPerson:person];
                 [[[self undoManager] prepareWithInvocationTarget:[self meeting]] removeFromPersonsPresent:person];
                 break;
-            case 3:
-                person = [[change objectForKey:@"old"] objectAtIndex:0];
+            case kChangeRemove:
+                person = [[change objectForKey:kOldObject] objectAtIndex:0];
                 [self stopObservingPerson:person];
                 [[[self undoManager] prepareWithInvocationTarget:[self meeting]] insertObject:person inPersonsPresentAtIndex:[[change objectForKey:@"indexes"] firstIndex]];
                 break;
@@ -143,22 +143,22 @@
                 break;
         }
     }
-    else if (keyPath == @"hourlyRate")
+    else if (keyPath == kKeyPathHourlyRate)
     {
-        switch ([[change objectForKey:@"kind"] intValue]) {
-            case 1:
-                [[[self undoManager] prepareWithInvocationTarget:object] setHourlyRate:[change objectForKey:@"old"]];
+        switch ([[change objectForKey:kChangeKind] intValue]) {
+            case kChangeUpdate:
+                [[[self undoManager] prepareWithInvocationTarget:object] setHourlyRate:[change objectForKey:kOldObject]];
                 break;
             default:
                 Log(@"WARNING! unexpected change for path: %@, change:%@, object:%@", keyPath, change, object);
                 break;
         }
     }
-    else if (keyPath == @"name")
+    else if (keyPath == kKeyPathName)
     {
-        switch ([[change objectForKey:@"kind"] intValue]) {
-            case 1:
-                [(Person *)[[self undoManager] prepareWithInvocationTarget:object] setName:[change objectForKey:@"old"]];
+        switch ([[change objectForKey:kChangeKind] intValue]) {
+            case kChangeUpdate:
+                [(Person *)[[self undoManager] prepareWithInvocationTarget:object] setName:[change objectForKey:kOldObject]];
                 break;
             default:
                 Log(@"WARNING! unexpected change for path: %@, change:%@, object:%@", keyPath, change, object);
@@ -169,7 +169,7 @@
 
 - (void)startObservingMeeting:(Meeting *)meeting
 {
-    [meeting addObserver:self forKeyPath:@"personsPresent" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    [meeting addObserver:self forKeyPath:kKeyPathPersonsPresent options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     [[meeting personsPresent] enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop)
     {
         [self startObservingPerson:object];
@@ -178,7 +178,7 @@
 
 - (void)stopObservingMeeting:(Meeting *)meeting
 {
-    [meeting removeObserver:self forKeyPath:@"personsPresent"];
+    [meeting removeObserver:self forKeyPath:kKeyPathPersonsPresent];
     [[meeting personsPresent] enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop)
     {
         [self stopObservingPerson:object];
@@ -187,14 +187,14 @@
 
 - (void)startObservingPerson:(Person *)person
 {
-    [person addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionOld context:nil];
-    [person addObserver:self forKeyPath:@"hourlyRate" options:NSKeyValueObservingOptionOld context:nil];
+    [person addObserver:self forKeyPath:kKeyPathName options:NSKeyValueObservingOptionOld context:nil];
+    [person addObserver:self forKeyPath:kKeyPathHourlyRate options:NSKeyValueObservingOptionOld context:nil];
 }
 
 - (void)stopObservingPerson:(Person *)person
 {
-    [person removeObserver:self forKeyPath:@"name"];
-    [person removeObserver:self forKeyPath:@"hourlyRate"];
+    [person removeObserver:self forKeyPath:kKeyPathName];
+    [person removeObserver:self forKeyPath:kKeyPathHourlyRate];
 }
 
 #pragma mark - Meeting Actions

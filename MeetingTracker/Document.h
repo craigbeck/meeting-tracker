@@ -8,6 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define kChangeKind @"kind"
+#define kChangeUpdate 1
+#define kChangeAdd 2
+#define kChangeRemove 3
+#define kOldObject @"old"
+#define kNewObject @"new"
+#define kObjectIndexes @"indexes"
+#define kKeyPathPersonsPresent @"personsPresent"
+#define kKeyPathName @"name"
+#define kKeyPathHourlyRate @"hourlyRate"
+
+
 @class Meeting;
 
 @interface Document : NSDocument {
