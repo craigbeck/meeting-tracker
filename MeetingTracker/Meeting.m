@@ -254,6 +254,10 @@
         _startingTime = [[coder decodeObjectForKey:@"startingTime"] retain];
         _endingTime = [[coder decodeObjectForKey:@"endingTime"] retain];
         _personsPresent = [[coder decodeObjectForKey:@"personsPresent"] retain];
+        [_personsPresent enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+        {
+            [obj addObserver:self forKeyPath:@"hourlyRate" options:NSKeyValueObservingOptionNew context:nil];
+        }];
     }
     return self;
 }
