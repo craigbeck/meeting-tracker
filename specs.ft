@@ -5,7 +5,6 @@
 - undo delete attendee @done
 - undo rate change @done
 - undo name change @done
-- default hourly rate
 
 ## Preferences.todo
 - preferences window/xib
