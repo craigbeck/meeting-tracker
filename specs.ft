@@ -1,10 +1,10 @@
 # Meeting Tracker III Specs
 
 ## Undo.todo
-- undo add attendee
-- undo delete attendee
-- undo rate change
-- undo name change
+- undo add attendee @done
+- undo delete attendee @done
+- undo rate change @done
+- undo name change @done
 - default hourly rate
 
 ## Preferences.todo
