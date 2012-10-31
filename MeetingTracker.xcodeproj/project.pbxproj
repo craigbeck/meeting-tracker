@@ -20,7 +20,7 @@
 		931FB7B8162D25810069ABDA /* MeetingTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 931FB7B7162D25810069ABDA /* MeetingTrackerTests.m */; };
 		93317689163E3DF70012CCA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93317688163E3DF70012CCA2 /* AppDelegate.m */; };
 		93317690163E3E720012CCA2 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9331768E163E3E720012CCA2 /* PreferencesWindowController.m */; };
-		93317691163E3E720012CCA2 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9331768F163E3E720012CCA2 /* PreferencesWindowController.xib */; };
+		93317691163E3E720012CCA2 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9331768F163E3E720012CCA2 /* Preferences.xib */; };
 		93AB9154162E74DF00170E08 /* testMeeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB9151162E74DF00170E08 /* testMeeting.m */; };
 		93AB9155162E74DF00170E08 /* testPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB9153162E74DF00170E08 /* testPerson.m */; };
 		93AB915A162E751C00170E08 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AB9157162E751C00170E08 /* Meeting.m */; };
@@ -63,7 +63,7 @@
 		93317688163E3DF70012CCA2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9331768D163E3E720012CCA2 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		9331768E163E3E720012CCA2 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
-		9331768F163E3E720012CCA2 /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
+		9331768F163E3E720012CCA2 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		93AB9150162E74DF00170E08 /* testMeeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testMeeting.h; sourceTree = "<group>"; };
 		93AB9151162E74DF00170E08 /* testMeeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testMeeting.m; sourceTree = "<group>"; };
 		93AB9152162E74DF00170E08 /* testPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testPerson.h; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 		93317694163E3EB30012CCA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9331768F163E3E720012CCA2 /* PreferencesWindowController.xib */,
+				9331768F163E3E720012CCA2 /* Preferences.xib */,
 				931FB79F162D257F0069ABDA /* Document.xib */,
 				931FB7A2162D25800069ABDA /* MainMenu.xib */,
 			);
@@ -294,7 +294,7 @@
 				931FB7A1162D257F0069ABDA /* Document.xib in Resources */,
 				931FB7A4162D25800069ABDA /* MainMenu.xib in Resources */,
 				93C4F85016364C6A00FD1C5D /* purple_birdy.iconset in Resources */,
-				93317691163E3E720012CCA2 /* PreferencesWindowController.xib in Resources */,
+				93317691163E3E720012CCA2 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

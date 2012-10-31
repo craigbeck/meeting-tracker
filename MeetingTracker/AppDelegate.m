@@ -7,7 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import "PreferencesWindowController.h"
 
 @implementation AppDelegate
+
+- (IBAction)showPreferencesWindow:(id)sender
+{
+    if (!preferencesController)
+    {
+        preferencesController = [[PreferencesWindowController alloc] init];
+    }
+    [preferencesController showWindow:self];
+}
 
 @end

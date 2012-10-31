@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class PreferencesWindowController;
+
 @interface AppDelegate : NSObject
+{
+    PreferencesWindowController *preferencesController;
+}
+
+- (IBAction)showPreferencesWindow:(id)sender;
 
 @end

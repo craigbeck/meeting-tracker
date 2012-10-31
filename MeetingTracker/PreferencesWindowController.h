@@ -9,5 +9,12 @@
 #import <Cocoa/Cocoa.h>
 
 @interface PreferencesWindowController : NSWindowController
+{
+    IBOutlet NSTextField *defaultNameField;
+    IBOutlet NSTextField *defaultHourlyRateField;
+}
+
+- (IBAction)changeDefaultName:(id)sender;
+- (IBAction)changeDefaultHourlyRate:(id)sender;
 
 @end

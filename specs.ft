@@ -7,7 +7,7 @@
 - undo name change @done
 
 ## Preferences.todo
-- preferences window/xib
+- preferences window/xib @done
 - default billing rate
 - default name
 - bindings used to apply preferences
