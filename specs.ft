@@ -8,8 +8,10 @@
 
 ## Preferences.todo
 - preferences window/xib @done
-- default billing rate
-- default name
+- default billing rate field @done
+- default name field @done
+- preferences update default used in app
+- preferences are persisted
 - bindings used to apply preferences
 
 ## Meeting Menu.todo
