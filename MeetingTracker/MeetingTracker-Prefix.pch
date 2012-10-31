@@ -8,7 +8,7 @@
 
 
 #if DEBUG
-#define Log(args...)    NSLog( @"%@", [NSString stringWithFormat: args])
+#define Log(args...)    NSLog( @"%s (line %d) [%@] %@",__PRETTY_FUNCTION__, __LINE__, [NSThread currentThread], [NSString stringWithFormat: args])
 #define LogMethod() NSLog(@"LogMethod: %s (line %d) %@",__PRETTY_FUNCTION__, __LINE__, [NSThread currentThread])
 #else
 // DEBUG not defined:
