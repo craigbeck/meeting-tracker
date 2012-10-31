@@ -10,7 +10,7 @@
 
 @class PreferencesWindowController;
 
-@interface AppDelegate : NSObject
+@interface AppDelegate : NSObject <NSApplicationDelegate>
 {
     PreferencesWindowController *preferencesController;
 }
