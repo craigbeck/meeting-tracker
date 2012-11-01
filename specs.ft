@@ -10,9 +10,9 @@
 - preferences window/xib @done
 - default billing rate field @done
 - default name field @done
-- preferences update default used in app
-- preferences are persisted
-- bindings used to apply preferences
+- preferences update default used in app @done
+- preferences are persisted @done
+- bindings used to apply preferences @done
 
 ## Meeting Menu.todo
 - "Meeting" menu @done
@@ -29,8 +29,8 @@
 - bundle version string to "3.0" @done
 
 ## Completed.todo
-- static analyzer run
-- no warnings present
-- clean build
+- static analyzer run @done
+- no warnings present @done
+- clean build @done
 - repo archived to zip
 - uploaded

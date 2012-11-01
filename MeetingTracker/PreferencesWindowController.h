@@ -17,7 +17,8 @@
     IBOutlet NSTextField *defaultNameField;
     IBOutlet NSTextField *defaultHourlyRateField;
     NSString *_defaultName;
-    float _defaultHourlyRate;
+    double _defaultHourlyRate;
+    double _hourlyRate;
 }
 
 - (IBAction)changeDefaultName:(id)sender;

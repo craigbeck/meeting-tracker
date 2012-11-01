@@ -29,7 +29,9 @@
 
 - (id)init
 {
-    return [self initWithName:@"anonymous" rate:0.0];
+    NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultName"];
+    double rate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"defaultHourlyRate"];
+    return [self initWithName:name rate:rate];
 }
 
 - (void)dealloc
