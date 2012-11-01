@@ -140,7 +140,6 @@
                 [[[self undoManager] prepareWithInvocationTarget:[self meeting]] insertObject:person inPersonsPresentAtIndex:[[change objectForKey:@"indexes"] firstIndex]];
                 break;
             default:
-                Log(@"WARNING! unexpected change for path: %@, change:%@", keyPath, change);
                 break;
         }
     }
@@ -151,7 +150,6 @@
                 [[[self undoManager] prepareWithInvocationTarget:object] setHourlyRate:[change objectForKey:kOldObject]];
                 break;
             default:
-                Log(@"WARNING! unexpected change for path: %@, change:%@, object:%@", keyPath, change, object);
                 break;
         }
     }
@@ -162,7 +160,6 @@
                 [(Person *)[[self undoManager] prepareWithInvocationTarget:object] setName:[change objectForKey:kOldObject]];
                 break;
             default:
-                Log(@"WARNING! unexpected change for path: %@, change:%@, object:%@", keyPath, change, object);
                 break;
         }
     }
