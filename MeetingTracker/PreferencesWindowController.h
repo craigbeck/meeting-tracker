@@ -8,10 +8,16 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define DefaultNameKey @"defaultName"
+#define DefaultHourlyRateKey @"defaultHourlyRate"
+
+
 @interface PreferencesWindowController : NSWindowController
 {
     IBOutlet NSTextField *defaultNameField;
     IBOutlet NSTextField *defaultHourlyRateField;
+    NSString *_defaultName;
+    float _defaultHourlyRate;
 }
 
 - (IBAction)changeDefaultName:(id)sender;

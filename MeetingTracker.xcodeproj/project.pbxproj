@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930B489A1641F87F00317DD7 /* panda_icon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 930B48991641F87F00317DD7 /* panda_icon.iconset */; };
+		930B489C16424B0700317DD7 /* specs.ft in Resources */ = {isa = PBXBuildFile; fileRef = 930B489B16424B0700317DD7 /* specs.ft */; };
 		931FB78B162D257F0069ABDA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931FB78A162D257F0069ABDA /* Cocoa.framework */; };
 		931FB795162D257F0069ABDA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 931FB793162D257F0069ABDA /* InfoPlist.strings */; };
 		931FB797162D257F0069ABDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 931FB796162D257F0069ABDA /* main.m */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		930B48991641F87F00317DD7 /* panda_icon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = panda_icon.iconset; sourceTree = "<group>"; };
+		930B489B16424B0700317DD7 /* specs.ft */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = specs.ft; sourceTree = "<group>"; };
 		931FB786162D257F0069ABDA /* MeetingTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		931FB78A162D257F0069ABDA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		931FB78D162D257F0069ABDA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -100,6 +104,8 @@
 		931FB77B162D257F0069ABDA = {
 			isa = PBXGroup;
 			children = (
+				930B489B16424B0700317DD7 /* specs.ft */,
+				930B48991641F87F00317DD7 /* panda_icon.iconset */,
 				93C4F84F16364C6A00FD1C5D /* purple_birdy.iconset */,
 				93C4F7BC1635F80200FD1C5D /* README.md */,
 				931FB790162D257F0069ABDA /* MeetingTracker */,
@@ -295,6 +301,8 @@
 				931FB7A4162D25800069ABDA /* MainMenu.xib in Resources */,
 				93C4F85016364C6A00FD1C5D /* purple_birdy.iconset in Resources */,
 				93317691163E3E720012CCA2 /* Preferences.xib in Resources */,
+				930B489A1641F87F00317DD7 /* panda_icon.iconset in Resources */,
+				930B489C16424B0700317DD7 /* specs.ft in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

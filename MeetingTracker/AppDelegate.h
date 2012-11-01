@@ -13,6 +13,7 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
     PreferencesWindowController *preferencesController;
+    NSUInteger _documentCount;
 }
 
 - (IBAction)showPreferencesWindow:(id)sender;

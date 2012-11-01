@@ -8,6 +8,9 @@
 
 #import "PreferencesWindowController.h"
 
+//NSString * const DefaultNameKey = @"defaultName";
+//NSString * const DefaultHoulyRateKey = @"defaultHourlyRate";
+
 @interface PreferencesWindowController ()
 
 @end
@@ -35,18 +38,23 @@
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaultNameField setStringValue:[defaults stringForKey:DefaultNameKey]];
+    [defaultHourlyRateField setStringValue:[NSNumber numberWithFloat:[defaults floatForKey:DefaultHourlyRateKey]]];
 }
 
 #pragma mark - Preference Methods
 
 - (IBAction)changeDefaultName:(id)sender
 {
-    LogMethod();
+    Log(@"new default name: %@", [sender stringValue]);
+    [[NSUserDefaults standardUserDefaults] setObject:[defaultNameField stringValue] forKey:DefaultNameKey];
 }
 
 - (IBAction)changeDefaultHourlyRate:(id)sender
 {
-    LogMethod();
+    Log(@"%@", sender);
+//    [[NSUserDefaults standardUserDefaults] setFloat:[defaultHourlyRateField stringValue] forKey:DefaultHourlyRateKey];
 }
 
 @end
