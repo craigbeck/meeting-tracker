@@ -60,6 +60,7 @@
 
 - (void)windowWillClose:(NSNotification *)notification
 {
+    [self stopMeeting:self];
     [[self timer] invalidate];
 }
 
@@ -205,6 +206,7 @@
     [_startMeetingButton setEnabled:![self isMeetingStarted]];
     [_stopMeetingButton setEnabled:[self isMeetingStarted]];
     [[self meeting] setStartingTime:[NSDate date]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"meeting.started" object:[self meeting]];
 }
 
 - (IBAction)stopMeeting:(id)sender
@@ -213,6 +215,7 @@
     [_startMeetingButton setEnabled:![self isMeetingStarted]];
     [_stopMeetingButton setEnabled:[self isMeetingStarted]];
     [[self meeting] setEndingTime:[NSDate date]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"meeting.stopped" object:[self meeting]];
 }
 
 - (BOOL)isMeetingStarted

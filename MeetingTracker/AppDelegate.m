@@ -22,38 +22,39 @@
 {
     NSDictionary *defaultValues = @{ DefaultNameKey: @"Employee", DefaultHourlyRateKey: [NSNumber numberWithFloat:25.50] };
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
-    Log(@"registered defaults: %@", defaultValues);
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
     NSDockTile *tile = [NSApp dockTile];
     [tile setBadgeLabel:@""];
-    NSDocumentController *docController = [NSDocumentController sharedDocumentController];
-    _documentCount = [[docController documents] count];
-    [docController addObserver:self forKeyPath:@"documents" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-    if (_documentCount)
-    {
-        [tile setBadgeLabel:[NSString stringWithFormat:@"%lu", _documentCount]];
-    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(meetingStarted:)
+                                                 name:@"meeting.started"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(meetingStopped:)
+                                                 name:@"meeting.stopped"
+                                               object:nil];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void)meetingStarted:(NSNotification *)notification
 {
-    if (keyPath == @"documents")
+    _documentCount = _documentCount + 1;
+    [[NSApp dockTile] setBadgeLabel:[NSString stringWithFormat:@"%li", _documentCount]];
+}
+
+- (void)meetingStopped:(NSNotification *)notification
+{
+    _documentCount = _documentCount - 1;
+    if (_documentCount)
     {
-        switch ([[change objectForKey:@"kind"] intValue])
-        {
-            case 2:
-                // add
-                NSLog(@"add document:%@", object);
-                break;
-            case 3:
-                // remove
-                NSLog(@"remove document:%@", object);
-            default:
-                break;
-        }
+        [[NSApp dockTile] setBadgeLabel:[NSString stringWithFormat:@"%li", _documentCount]];
+    }
+    else
+    {
+        [[NSApp dockTile] setBadgeLabel:@""];
     }
 }
 
